@@ -9,9 +9,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(DuckDB_USE_STATIC_LIBS TRUE)
+#set(DuckDB_USE_STATIC_LIBS TRUE)
 
-add_subdirectory(duckdb)
+#add_subdirectory(duckdb_static)
 
 
 add_executable(main
@@ -20,8 +20,8 @@ add_executable(main
    src/chess/moves.cpp
    )
 
-include_directories(duckdb/src/include)
-target_link_libraries(main duckdb_static)
+include_directories(duckdb_static)
+target_link_libraries(main ${CMAKE_CURRENT_SOURCE_DIR}/duckdb_static/libduckdb.so)
 
 #target_compile_options(main PRIVATE /arch:AVX2)
 target_compile_options(main PRIVATE -march=native)
