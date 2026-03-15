@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/eguneys/swipl-devel/packages/cpp/",
+                "/home/eguneys/swipl-devel/src/",
+                "/home/eguneys/swipl-devel/src/os",
+                "${workspaceFolder}/duckdb/src/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c23",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        },
+        {
+            "name": "swipl",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../swipl-devel/packages/cpp"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
