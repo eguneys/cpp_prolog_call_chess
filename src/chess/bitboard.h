@@ -6,6 +6,7 @@
 #include <cassert>
 #include <algorithm>
 #include <cmath>
+#include <string>
 
 
 #include "types.h"

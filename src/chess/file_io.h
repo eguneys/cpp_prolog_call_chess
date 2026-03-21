@@ -193,6 +193,10 @@ public:
         header = (DBHeader*)base_ptr;
     }
 
+    inline u64 size() {
+        return header->total_count;
+    }
+
     template <typename Func>
     void sweep(Func callback) const {
         for (uint32_t s = 0; s < header->segment_count; ++s) {
@@ -509,7 +513,7 @@ void castle(PositionRecord& record, Square from, Square to);
 void parse_fen(const std::string_view& fen, PositionRecord& rec);
 u16 encode_move(const Move& move);
 u64 encode_id(const std::string_view& id);
-std::string decode_id(u64 encoded);
+std::string decode_ascii_id(u64 encoded);
 
 void build_features(const PositionRecord& rec, PositionFeatures& feat);
 

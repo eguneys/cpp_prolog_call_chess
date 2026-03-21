@@ -18,6 +18,8 @@ add_executable(main
    src/create_db.cpp
    src/chess/bitboard.cpp
    src/chess/moves.cpp
+   src/chess/file_io.cpp
+   src/chess/gen_geometry.cpp
    )
 
 include_directories(duckdb_static)

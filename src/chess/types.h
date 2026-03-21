@@ -85,16 +85,16 @@ namespace Chess {
         Rank_1, Rank_2, Rank_3, Rank_4, Rank_5, Rank_6, Rank_7, Rank_8, Rank_Nb
     };
 
-#define ENABLE_INC_OPERATORS_ON(T)                           \
-    inline T &operator++(T &d) { return d = T(int(d) + 1); } \
-    inline T &operator--(T &d) { return d = T(int(d) - 1); }
+    #define ENABLE_INC_OPERATORS_ON(T)                           \
+        constexpr T& operator++(T& d) { return d = T(int(d) + 1); } \
+        constexpr T& operator--(T& d) { return d = T(int(d) - 1); }
 
-    ENABLE_INC_OPERATORS_ON(PieceType)
-    ENABLE_INC_OPERATORS_ON(Square)
-    ENABLE_INC_OPERATORS_ON(File)
-    ENABLE_INC_OPERATORS_ON(Rank)
+ENABLE_INC_OPERATORS_ON(PieceType)
+ENABLE_INC_OPERATORS_ON(Square)
+ENABLE_INC_OPERATORS_ON(File)
+ENABLE_INC_OPERATORS_ON(Rank)
 
-#undef ENABLE_INC_OPERATORS_ON
+    #undef ENABLE_INC_OPERATORS_ON
 
     constexpr Square operator+(Square s, Direction d) { return Square(int(s) + int(d)); }
     constexpr Square operator-(Square s, Direction d) { return Square(int(s) - int(d)); }

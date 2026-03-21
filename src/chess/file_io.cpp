@@ -149,14 +149,21 @@ u64 encode_ascii_id(const std::string_view &id)
     return result;
 }
 
-std::string decode_id(u64 encoded)
+std::string decode_ascii_id(u64 encoded)
 {
-    std::string result(8, ' ');
-    for (int i = 7; i >= 0; i--)
+    std::string result;
+    result.reserve(8);
+    
+    // Copy the bytes directly
+    for (int i = 0; i < 8; i++)
     {
-        result[i] = static_cast<char>(encoded & 0xFF);
-        encoded >>= 8;
+        char c = static_cast<char>((encoded >> (56 - i * 8)) & 0xFF);
+        if (c != '\0')  // Skip null padding
+        {
+            result.push_back(c);
+        }
     }
+    
     return result;
 }
 
